@@ -7,28 +7,28 @@ Autor:
 Libro:
  - ID (PK)
  - Titulo
- - Autor (SK)
- - ISBN
+ - Autor (FK)
+ - ISBN (UNIQUE)
  - Genero (Enum)
  - Fecha de publicacion
  - Edicion
  - Editorial
 
 Ejemplar:
- - Libro (SK) (PK comp)
- - Fecha incorporacion (PK comp)
+ - ID (PK)
+ - Libro (FK)
+ - Fecha incorporacion
 
 Socio:
  - ID (PK)
  - Nombre
  - Apellidos
  - Fecha de nacimiento
- - Puntos
 
-Prestamos:
+Prestamo:
  - ID (PK)
- - Ejemplar prestado (SK)
- - Socio al que se presta (SK)
+ - Ejemplar prestado (FK)
+ - Socio al que se presta (FK)
  - Fecha del prestamo
  - Fecha esperada de entrega o retorno
- - Estado entrega
+ - Fecha de entrega

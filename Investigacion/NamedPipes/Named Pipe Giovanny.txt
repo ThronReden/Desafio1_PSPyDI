@@ -1,0 +1,31 @@
+1- direccion del pipe --> pipeDirection - in out 
+2- Streamwriter Streamreader simultanea --> using
+3- Explicar como lo vais a usar en vuestro proyecto 
+4- poned el ejemplo de como podria ser el Json - datos a enviar 
+
+Pipelines o tuberias con nombre son un mecanismo de comunicacion que permite que dos 
+procesos intercambien datos sin importar, que se realicen en diferentes programas con tal que 
+esten en el mismo ordenador 
+
+Named Pipe en nuestro proyecto de biblioteca nos puede servir para comunicar distintos modulos
+independientes como por ejemplo una aplicacion que gestione prestamos 
+y otra que controle el inventario de los libros 
+
+Por ejemplo cuando biblioteca pulsa algo como prestar libro, la aplicacion enviara 
+una peticion por la tuberia
+para que el programa compruebe si el libro esta disponible, 
+registre el prestamo y devuelva el resultado
+
+Algunos Json de nuestro proyecto son los siguientes 
+
+Prestamo
+{
+  "operacion": "Prestamo",
+  "IDlibro": "9780132350884",
+  "idUsuario": 125,
+  "fecha": "2026-10-26"
+}
+Asing y Away 
+int aut 
+
+

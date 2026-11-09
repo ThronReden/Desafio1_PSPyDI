@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NBIc6wYebxE=",
+  "dgSpecHash": "9LtPjN2z7xM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Parte_Visual\\Parte_Visual\\Parte_Visual.csproj",
+  "projectFilePath": "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Programa\\Parte_Visual\\Parte_Visual.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yoshi\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\yoshi\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

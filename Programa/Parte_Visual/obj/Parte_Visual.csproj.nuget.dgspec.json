@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Parte_Visual\\Parte_Visual\\Parte_Visual.csproj": {}
+    "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Programa\\Parte_Visual\\Parte_Visual.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Parte_Visual\\Parte_Visual\\Parte_Visual.csproj": {
+    "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Programa\\Parte_Visual\\Parte_Visual.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Parte_Visual\\Parte_Visual\\Parte_Visual.csproj",
+        "projectUniqueName": "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Programa\\Parte_Visual\\Parte_Visual.csproj",
         "projectName": "Parte_Visual",
-        "projectPath": "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Parte_Visual\\Parte_Visual\\Parte_Visual.csproj",
+        "projectPath": "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Programa\\Parte_Visual\\Parte_Visual.csproj",
         "packagesPath": "C:\\Users\\yoshi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Parte_Visual\\Parte_Visual\\obj\\",
+        "outputPath": "C:\\Users\\yoshi\\OneDrive\\Desktop\\Desafio1_PSPyDI\\Programa\\Parte_Visual\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

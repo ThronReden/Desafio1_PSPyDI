@@ -20,5 +20,25 @@ namespace Parte_Visual
         {
             InitializeComponent();
         }
+
+        private void AbrirClientes_Click(object sender, RoutedEventArgs e)
+        {
+            new ClientesWindow { Owner = this }.ShowDialog();
+        }
+
+        private void AbrirLibros_Click(object sender, RoutedEventArgs e)
+        {
+            new LibrosWindow { Owner = this }.ShowDialog();
+        }
+
+        private void AbrirPrestamos_Click(object sender, RoutedEventArgs e)
+        {
+            new PrestamosWindow { Owner = this }.ShowDialog();
+        }
+
+        private void Salir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

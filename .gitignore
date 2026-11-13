@@ -786,3 +786,6 @@ FodyWeavers.xsd
 *.tlog
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Csharp,VisualStudio
+
+### Security (JSanchez):
+appsettings.json

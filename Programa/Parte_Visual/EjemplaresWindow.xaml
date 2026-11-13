@@ -1,0 +1,28 @@
+﻿<Window x:Class="Biblioteca_V2.EjemplaresWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ejemplares" Height="420" Width="700"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Ejemplares" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <DataGrid x:Name="dgDatos" Grid.Row="1"
+                  AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Libro" Binding="{Binding Libro.Titulo, Mode=OneWay}" Width="*"/>
+                <DataGridTextColumn Header="Fecha incorporación" Binding="{Binding FechaIncorporacion, StringFormat=d}" Width="150"/>
+                <DataGridCheckBoxColumn Header="Disponible" Binding="{Binding Disponible, Mode=OneWay}" Width="90"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="2" Content="Volver" Width="90" Margin="0,10,0,0"
+                HorizontalAlignment="Right" Click="Volver_Click"/>
+    </Grid>
+</Window>

@@ -1,4 +1,4 @@
 <Solution>
+  <Project Path="../../../../Downloads/Biblioteca_V2/Biblioteca V2/Biblioteca V2/Parte_Visual.csproj" />
   <Project Path="Gestor_Procesos/Gestor_Procesos.csproj" Id="ce5a5ccc-5581-43af-8780-1b6ce5a3328a" />
-  <Project Path="Parte_Visual/Parte_Visual.csproj" />
 </Solution>

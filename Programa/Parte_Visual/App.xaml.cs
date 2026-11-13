@@ -1,14 +1,11 @@
-﻿using System.Configuration;
-using System.Data;
 using System.Windows;
 
-namespace Parte_Visual
+namespace Biblioteca_V2
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Lógica de interacción para App.xaml
     /// </summary>
     public partial class App : Application
     {
     }
-
 }

@@ -1,32 +1,114 @@
-﻿<Window x:Class="Biblioteca_V2.PrestamosWindow"
-               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window x:Class="Parte_Visual.PrestamosWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Préstamos" Height="420" Width="1000"
-        WindowStartupLocation="CenterOwner">
+        Title="Gestor de Préstamos"
+        Height="600" Width="1000"
+        WindowStartupLocation="CenterOwner"
+        Background="#FFF5F5F5">
+
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Préstamos" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+        <TextBlock Text="GESTOR DE PRÉSTAMOS"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="#2C3E50"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,15"/>
 
-        <DataGrid x:Name="dgDatos" Grid.Row="1"
-                  AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="40"/>
-                <DataGridTextColumn Header="Libro (ejemplar)" Binding="{Binding Ejemplar.Libro.Titulo, Mode=OneWay}" Width="*"/>
-                <DataGridTextColumn Header="Ej." Binding="{Binding EjemplarId}" Width="40"/>
-                <DataGridTextColumn Header="Socio" Binding="{Binding Socio.NombreCompleto, Mode=OneWay}" Width="*"/>
-                <DataGridTextColumn Header="F. préstamo" Binding="{Binding FechaPrestamo, StringFormat=d}" Width="100"/>
-                <DataGridTextColumn Header="F. esperada" Binding="{Binding FechaEsperadaEntrega, StringFormat=d}" Width="100"/>
-                <DataGridTextColumn Header="F. entrega" Binding="{Binding FechaEntrega, StringFormat=d}" Width="100"/>
-                <DataGridTextColumn Header="Estado" Binding="{Binding Estado, Mode=OneWay}" Width="90"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <GroupBox Header="Listado de préstamos"
+                  Margin="0,0,0,10"
+                  Grid.Row="1"
+                  Background="#E8F0FE"
+                  BorderBrush="#B0C4DE"
+                  BorderThickness="1">
+            <DataGrid x:Name="dgDatos"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      CanUserAddRows="False"
+                      SelectionMode="Single"
+                      Background="White"
+                      GridLinesVisibility="Horizontal"
+                      RowBackground="White"
+                      AlternatingRowBackground="#F0F8FF"
+                      SelectionChanged="dgDatos_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
+                    <DataGridTextColumn Header="Libro (ejemplar)" Binding="{Binding Ejemplar.Libro.Titulo, Mode=OneWay}" Width="*"/>
+                    <DataGridTextColumn Header="Ej." Binding="{Binding EjemplarId}" Width="40"/>
+                    <DataGridTextColumn Header="Socio" Binding="{Binding Socio.NombreCompleto, Mode=OneWay}" Width="*"/>
+                    <DataGridTextColumn Header="F. préstamo" Binding="{Binding FechaPrestamo, StringFormat=d}" Width="100"/>
+                    <DataGridTextColumn Header="F. esperada" Binding="{Binding FechaEsperadaEntrega, StringFormat=d}" Width="100"/>
+                    <DataGridTextColumn Header="F. entrega" Binding="{Binding FechaEntrega, StringFormat=d}" Width="100"/>
+                    <DataGridTextColumn Header="Estado" Binding="{Binding Estado, Mode=OneWay}" Width="90"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
 
-        <Button Grid.Row="2" Content="Volver" Width="90" Margin="0,10,0,0"
-                HorizontalAlignment="Right" Click="Volver_Click"/>
+        <GroupBox Header="Datos del préstamo"
+                  Grid.Row="2"
+                  Background="#E8F0FE"
+                  BorderBrush="#B0C4DE"
+                  BorderThickness="1">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Ejemplar:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cmbEjemplar" Grid.Row="0" Grid.Column="1" Margin="5">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Id}"/>
+                                <TextBlock Text=" - "/>
+                                <TextBlock Text="{Binding Libro.Titulo}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Socio:" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cmbSocio" DisplayMemberPath="NombreCompleto" Grid.Row="0" Grid.Column="3" Margin="5"/>
+                <TextBlock Text="F. préstamo:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                <DatePicker x:Name="dpFechaPrestamo" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                <TextBlock Text="F. esperada entrega:" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
+                <DatePicker x:Name="dpFechaEsperada" Grid.Row="1" Grid.Column="3" Margin="5"/>
+                <TextBlock Text="F. entrega:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                <DatePicker x:Name="dpFechaEntrega" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+                <!-- Botones -->
+                <StackPanel Grid.Row="3"
+                            Grid.ColumnSpan="4"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,15,0,0">
+
+                    <Button Content="Nuevo" Width="90" Margin="0,0,10,0"
+                            Click="Nuevo_Click" Background="#3498DB" Foreground="White" FontWeight="Bold"/>
+
+                    <Button Content="Guardar" Width="90" Margin="0,0,10,0"
+                            Click="Guardar_Click" Background="#27AE60" Foreground="White" FontWeight="Bold"/>
+
+                    <Button Content="Eliminar" Width="90" Margin="0,0,10,0"
+                            Click="Eliminar_Click" Background="#E74C3C" Foreground="White" FontWeight="Bold"/>
+
+                    <Button Content="Volver" Width="90" Click="Volver_Click"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

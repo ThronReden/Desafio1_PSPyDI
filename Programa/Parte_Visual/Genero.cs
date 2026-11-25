@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Biblioteca_V2
+namespace Parte_Visual
 {
     public enum Genero
     {
@@ -19,4 +19,4 @@ namespace Biblioteca_V2
 }
 
 
-// Esto funciona ? 
+// Esto funciona ? 

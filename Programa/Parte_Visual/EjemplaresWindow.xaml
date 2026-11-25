@@ -1,28 +1,92 @@
-﻿<Window x:Class="Biblioteca_V2.EjemplaresWindow"
-              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window x:Class="Parte_Visual.EjemplaresWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Ejemplares" Height="420" Width="700"
-        WindowStartupLocation="CenterOwner">
+        Title="Gestor de Ejemplares"
+        Height="540" Width="900"
+        WindowStartupLocation="CenterOwner"
+        Background="Aquamarine">
+
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Ejemplares" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+        <TextBlock Text="GESTOR DE EJEMPLARES"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="BlueViolet"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,15"/>
 
-        <DataGrid x:Name="dgDatos" Grid.Row="1"
-                  AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"/>
-                <DataGridTextColumn Header="Libro" Binding="{Binding Libro.Titulo, Mode=OneWay}" Width="*"/>
-                <DataGridTextColumn Header="Fecha incorporación" Binding="{Binding FechaIncorporacion, StringFormat=d}" Width="150"/>
-                <DataGridCheckBoxColumn Header="Disponible" Binding="{Binding Disponible, Mode=OneWay}" Width="90"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <GroupBox Header="Listado de ejemplares"
+                  Margin="0,0,0,10"
+                  Grid.Row="1"
+                  Background="Orange"
+                  BorderBrush="Purple"
+                  BorderThickness="1">
+            <DataGrid x:Name="dgDatos"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      CanUserAddRows="False"
+                      SelectionMode="Single"
+                      Background="White"
+                      GridLinesVisibility="Horizontal"
+                      RowBackground="AliceBlue"
+                      AlternatingRowBackground="Brown"
+                      SelectionChanged="dgDatos_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
+                    <DataGridTextColumn Header="Libro" Binding="{Binding Libro.Titulo, Mode=OneWay}" Width="*"/>
+                    <DataGridTextColumn Header="Fecha incorporación" Binding="{Binding FechaIncorporacion, StringFormat=d}" Width="150"/>
+                    <DataGridCheckBoxColumn Header="Disponible" Binding="{Binding Disponible, Mode=OneWay}" Width="90"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
 
-        <Button Grid.Row="2" Content="Volver" Width="90" Margin="0,10,0,0"
-                HorizontalAlignment="Right" Click="Volver_Click"/>
+        <GroupBox Header="Datos del ejemplar"
+                  Grid.Row="2"
+                  Background="Silver"
+                  BorderBrush="Red"
+                  BorderThickness="1">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Libro:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cmbLibro" DisplayMemberPath="Titulo" Grid.Row="0" Grid.Column="1" Margin="5"/>
+                <TextBlock Text="F. incorporación:" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"/>
+                <DatePicker x:Name="dpFechaIncorporacion" Grid.Row="0" Grid.Column="3" Margin="5"/>
+
+                <!-- Botones -->
+                <StackPanel Grid.Row="1"
+                            Grid.ColumnSpan="4"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,15,0,0">
+
+                    <Button Content="Nuevo" Width="90" Margin="0,0,10,0"
+                            Click="Nuevo_Click" Background="#3498DB" Foreground="White" FontWeight="Bold"/>
+
+                    <Button Content="Guardar" Width="90" Margin="0,0,10,0"
+                            Click="Guardar_Click" Background="#27AE60" Foreground="White" FontWeight="Bold"/>
+
+                    <Button Content="Eliminar" Width="90" Margin="0,0,10,0"
+                            Click="Eliminar_Click" Background="#E74C3C" Foreground="White" FontWeight="Bold"/>
+
+                    <Button Content="Volver" Width="90" Click="Volver_Click"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
